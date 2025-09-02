@@ -7,7 +7,6 @@ html, body {
     height: 100%;
     width: 100%;
     margin: 0;
-    border: 2px solid rgb(247, 18, 18);
 }
 
 .container-grid {
@@ -26,34 +25,39 @@ html, body {
     grid-template-areas:
         "title-container nav-container";
     grid-template-columns: 20% auto;
-    border: 2px solid black;
+    /* border: 2px solid black; */
 }
 
 .title-container {
-    border: 2px solid black;
     display: flex;
     justify-content: center;
     align-items: center;
+    /* border: 2px solid black; */
+}
+
+.nav-container {
+    grid-area: nav-container;
+    align-content: center;
+    /* border: 2px solid black; */
 }
 
 .navlink-container {
     display: grid;
     grid-template-columns: auto auto auto auto;
     justify-content: space-around;
-    border: 2px solid black;
     list-style-type: none;
+    /* border: 2px solid black; */
 }
 
 
-.main-container {
+.principal-main-container {
     grid-area: main;
     display: grid;
     grid-template-areas:
         "principal"
         "tables";
-    background-color: aquamarine;
     grid-template-rows: 400px auto;
-    border: 2px solid black;
+    /* border: 2px solid black; */
 }
 
 .principal-section {
@@ -66,7 +70,7 @@ html, body {
     background-position: center;
     background-repeat: no-repeat;
     color: white;
-    border: 2px solid black;
+    /* border: 2px solid black; */
 }
 
 
@@ -81,7 +85,7 @@ html, body {
     justify-items: center;
 
     background-color: rgb(185, 150, 105);
-    border: 2px solid black;
+    /* border: 2px solid black; */
 }
 
 .tables-title {
@@ -89,7 +93,7 @@ html, body {
 }
 
 .ranking-table {
-    
+
     grid-area: ranking;
 }
 
@@ -103,7 +107,39 @@ html, body {
     grid-area: footer;
     display: grid;
     justify-content: center;
+    align-items: center;
     background-color: chocolate;
-    border: 2px solid black;
+    /* border: 2px solid black; */
 }
 
+nav a:link, nav a:visited {
+    font-size: 20px;
+    font-weight: 600;
+    color: saddlebrown;
+    text-decoration: none;
+}
+
+a:link:active, a:visited:active {
+  color: (internal value);
+}
+
+table, th{
+    border: 3px solid rgb(93, 68, 5);
+    background-color: bisque;
+}
+
+td {
+    border: 3px solid gray;
+    background-color: antiquewhite;
+}
+
+/* Usuarios Page */
+
+.users-main-container {
+    grid-area: main;
+    background-color: rgb(185, 150, 105);
+}
+
+.userlist-section {
+    justify-items: center;
+}
