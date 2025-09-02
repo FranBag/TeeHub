@@ -24,4 +24,6 @@ la competencia dada por el ranking, y la interacción social mediante los clanes
   
 
 ---
-
+Link del informe
+[Click aquí](https://drive.google.com/file/d/1RXtHH6hjNNC7EjmymtQPZ0Xb7XrSzdwg/view?usp=sharing
+)
