@@ -78,7 +78,7 @@ html, body {
     grid-area: tables;
     display: grid;
     grid-template-areas:
-        "title title"
+        "title-tables title-tables"
         "ranking onlineusers";
 
     justify-content: space-around;
@@ -89,7 +89,7 @@ html, body {
 }
 
 .tables-title {
-    grid-area: title;
+    grid-area: title-tables;
 }
 
 .ranking-table {
@@ -138,8 +138,43 @@ td {
 .users-main-container {
     grid-area: main;
     background-color: rgb(185, 150, 105);
+    justify-items: center;
 }
 
 .userlist-section {
     justify-items: center;
+}
+
+/* Clans Page */
+
+.clans-main-container {
+    grid-area: main;
+    display: grid;
+    grid-template-areas:
+        "title-clan"
+        "clanlist";
+    background-color: rgb(185, 150, 105);
+    justify-items: center;
+}
+
+.clan-title {
+    grid: title-clan;
+}
+
+.clanslist-section {
+    grid: clanlist;
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+
+.clan-box {
+    display: grid;
+    height: 200px;
+    width: 200px;
+    border: 4px solid black;
+    border-radius: 10px;
+    margin: 10px;
+    background-color: peachpuff;
+    justify-items: center;
+    align-content: center;
 }
