@@ -151,14 +151,14 @@ td {
     grid-area: main;
     display: grid;
     grid-template-areas:
-        "title-clan"
+        "title-clans"
         "clanlist";
     background-color: rgb(185, 150, 105);
     justify-items: center;
 }
 
-.clan-title {
-    grid: title-clan;
+.clans-title {
+    grid: title-clans;
 }
 
 .clanslist-section {
@@ -175,6 +175,41 @@ td {
     border-radius: 10px;
     margin: 10px;
     background-color: peachpuff;
+    text-align: center;
+}
+
+/* Especific Clan page */
+
+.clan-main-container {
+    grid-area: main;
+    display: grid;
+    grid-template-areas:
+        "title-clan"
+        "claninfo";
+    grid-template-rows: 20% 80%;
+    background-color: rgb(185, 150, 105);
     justify-items: center;
-    align-content: center;
+}
+
+.clan-title {
+    grid: title-clan;
+}
+
+.claninfo-section {
+    width: 30%;
+    grid: claninfo;
+    display: grid;
+    grid-template-areas:
+        "membertable clantable";
+    grid-template-columns: 40% 40%;
+    grid-template-rows: auto auto;
+    justify-content: space-around;
+}
+
+.member-table {
+    grid: membertable;
+}
+
+.clan-table {
+    grid: clantable;
 }
