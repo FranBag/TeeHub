@@ -1,0 +1,109 @@
+html, body {
+    font-family: "Lexend", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    border: 2px solid rgb(247, 18, 18);
+}
+
+.container-grid {
+    display: grid;
+    grid-template-areas:
+        "header"
+        "main"
+        "footer";
+    grid-template-rows: 10% auto 10%;
+}
+
+.header-container {
+    display: grid;
+    grid-area: header;
+    background-color: antiquewhite;
+    grid-template-areas:
+        "title-container nav-container";
+    grid-template-columns: 20% auto;
+    border: 2px solid black;
+}
+
+.title-container {
+    border: 2px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navlink-container {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    justify-content: space-around;
+    border: 2px solid black;
+    list-style-type: none;
+}
+
+
+.main-container {
+    grid-area: main;
+    display: grid;
+    grid-template-areas:
+        "principal"
+        "tables";
+    background-color: aquamarine;
+    grid-template-rows: 400px auto;
+    border: 2px solid black;
+}
+
+.principal-section {
+    grid-area: principal;
+    align-content: center;
+    justify-items: center;
+
+    background-image: url("../assets/images/principal_backgroud.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white;
+    border: 2px solid black;
+}
+
+
+.tables-container {
+    grid-area: tables;
+    display: grid;
+    grid-template-areas:
+        "title title"
+        "ranking onlineusers";
+
+    justify-content: space-around;
+    justify-items: center;
+
+    background-color: rgb(185, 150, 105);
+    border: 2px solid black;
+}
+
+.tables-title {
+    grid-area: title;
+}
+
+.ranking-table {
+    
+    grid-area: ranking;
+}
+
+.onlineusers-table {
+    grid-area: onlineusers;
+}
+
+
+
+.footer-container {
+    grid-area: footer;
+    display: grid;
+    justify-content: center;
+    background-color: chocolate;
+    border: 2px solid black;
+}
+
