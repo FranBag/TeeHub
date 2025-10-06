@@ -19,9 +19,45 @@
 } /* Para que los bordes no aumenten el tamaño de los elementos */
 
 
+
+.borde-prueba {
+    border: 4px solid white;
+}
+
+.principal-color {
+    color: #00BFFF;
+}
+
+.principal-color-background {
+    background-color: #00BFFF;
+}
+
+.white-color {
+    color: #FFFFFF;
+}
+
+.black-color-background {
+    background-color: #0A0A0A;
+}
+
 h1, h2 {
     font-family: "DejaVu Serif";
     font-style: normal;
+    margin: 0;
+}
+
+h1 {
+    color: #00BFFF;
+    text-shadow: 2px 2px 0px #0A0A0A;
+}
+
+h2 {
+    color: #FFFFFF;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
 }
 
 .container {
@@ -31,14 +67,42 @@ h1, h2 {
 
     font-family: "DejaVu Sans";
     font-weight: normal;
+    color: #BBBBBB;
+
+    display: grid;
+    grid-template-areas: "header"
+                         "main"
+                         "footer";
+    grid-template-rows: 15vh auto auto;
 }
 
 .global-header {
+    position: sticky;
+    top: 0px;
     grid-area: header;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border: #1A1A1A solid 1px;
+}
+
+.global-header-icon {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.global-nav {
+    flex-grow: 1;
+    font-size: 1.5vw;
 }
 
 .main {
     grid-area: main;
+    display: grid;
+    grid-template-areas: "home-principal home-principal"
+                         "home-player-ranking home-clan-ranking";
+    grid-template-rows: 60vh auto;
 }
 
 .global-footer {
@@ -46,5 +110,50 @@ h1, h2 {
 }
 
 .nav-items {
+    display: flex;
     list-style: none;
+    flex-direction: row;
+    justify-content: space-evenly;
+
+    margin: 0;
+    padding: 0;
+}
+
+.nav-items a:link, a:visited{
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.home-principal {
+    grid-area: home-principal;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)), url(../assets/images/home_background.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.home-player-ranking {
+    grid-area: home-player-ranking;
+}
+
+.home-clan-ranking {
+    grid-area: home-clan-ranking;
+}
+
+.search-bar {
+    background-color: #0A0A0A;
+    border: #444444 solid 1px;
+    border-radius: 2px;
+    color: #BBBBBB;
+}
+
+.text-input {
+    background-color: #0A0A0A;
+    border: #00BFFF solid 2px;
+    border-radius: 6px;
+    color: #BBBBBB;
 }
