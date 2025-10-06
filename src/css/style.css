@@ -12,6 +12,13 @@
     font-style: normal;
 } /* Fuente DejaVu Serif utilizada en títulos*/
 
+
+/*
+////////////////////////////////
+//////////   GLOBAL   //////////
+////////////////////////////////
+*/
+
 *,
 *::before,
 *::after {
@@ -49,7 +56,7 @@ html {
     }
 }
 
-h1, h2 {
+h1, h2 , h3{
     font-family: "DejaVu Serif";
     font-style: normal;
     margin: 0;
@@ -63,13 +70,22 @@ h1 {
 
 h2 {
     color: #FFFFFF;
-    font-size: 1.5rem;
-    margin-bottom: 10px;
+}
+
+h3 {
+    color: #FFFFFF;
+    font-size: 1.4rem;
 }
 
 img {
     max-width: 100%;
     height: auto;
+}
+
+hr {
+    border: 2px solid #1A1A1A;
+    margin: 1rem;
+    flex-basis: 100vw;
 }
 
 .container {
@@ -129,12 +145,6 @@ img {
     grid-area: main;
 }
 
-.main-home {
-    display: grid;
-    grid-template-areas: "home-principal"
-                         "home-rankings";
-    grid-template-rows: 60vh 40vh;
-}
 
 .global-footer {
     grid-area: footer;
@@ -148,7 +158,7 @@ img {
     list-style: none;
     flex-direction: row;
     justify-content: space-evenly;
-
+    
     margin: 0;
     padding: 0;
 }
@@ -159,42 +169,10 @@ img {
     }
 }
 
+
 .nav-items a:link, a:visited{
     color: #FFFFFF;
     text-decoration: none;
-}
-
-.home-principal {
-    grid-area: home-principal;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)), url(../assets/images/home_background.jpg);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-}
-
-.home-principal-p {
-    text-shadow: 4px 2px 6px #0A0A0A;
-}
-
-.home-rankings {
-    grid-area: home-rankings;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-evenly;
-    margin-top: 4rem;
-}
-
-.home-player-ranking {
-    justify-items: center;
-}
-
-.home-clan-ranking {
-    justify-items: center;
 }
 
 .ranking-table {
@@ -243,4 +221,107 @@ img {
     border: #444444 solid 2px;
     border-radius: 2px;
     color: #BBBBBB;
+}
+
+.action-button {
+    background-color: #0A0A0A;
+    color: #FFFFFF;
+    border: 2px solid #00BFFF;
+    border-radius: 5px;
+    padding: 5px 6px 5px 6px;
+    font-family: "DejaVu Sans";
+}
+
+.action-button:hover {
+    background-color: #1A1A1A;
+    color: #BBBBBB;
+    box-shadow: 0 1px 2px #BBBBBB;
+}
+
+.action-button:active {
+    background-color: #BBBBBB;
+    color: #FFFFFF;
+}
+
+
+/*
+////////////////////////////////
+////////   HOME PAGE   /////////
+////////////////////////////////
+*/
+
+.main-home {
+    display: grid;
+    grid-template-areas: "home-principal"
+                         "home-rankings";
+    grid-template-rows: 60vh 40vh;
+}
+
+.home-principal {
+    grid-area: home-principal;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)), url(../assets/images/home_background.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.home-principal-p {
+    text-shadow: 4px 2px 6px #0A0A0A;
+}
+
+.home-rankings {
+    grid-area: home-rankings;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: 4rem;
+}
+
+.home-player-ranking {
+    justify-items: center;
+}
+
+.home-clan-ranking {
+    justify-items: center;
+}
+
+
+/*
+////////////////////////////////
+/////   LEADERBOARD PAGE   /////
+////////////////////////////////
+*/
+
+.main-leaderboard {
+    text-align: center;
+}
+
+.leaderboard-rankings {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10vw;
+    width: 100%;
+}
+
+.leaderboard-rankings h3{
+    text-align: center;
+}
+
+.leaderboard-player-ranking, .leaderboard-clan-ranking {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.leaderboard-rankings .action-button {
+    flex-basis: auto;
+    flex-grow: 0;
+    align-self: center;
+    width: auto;
 }
