@@ -226,7 +226,7 @@ hr {
 .action-button {
     background-color: #0A0A0A;
     color: #FFFFFF;
-    border: 2px solid #00BFFF;
+    border: 1px solid #00BFFF;
     border-radius: 5px;
     padding: 5px 6px 5px 6px;
     font-family: "DejaVu Sans";
@@ -234,13 +234,11 @@ hr {
 
 .action-button:hover {
     background-color: #1A1A1A;
-    color: #BBBBBB;
-    box-shadow: 0 1px 2px #BBBBBB;
+    border: 2px solid #FFFFFF;
 }
 
 .action-button:active {
     background-color: #BBBBBB;
-    color: #FFFFFF;
 }
 
 
