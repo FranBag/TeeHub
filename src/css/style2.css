@@ -3,21 +3,20 @@
     src: url("../assets/fonts/dejavu-sans.woff2") format("woff2");
     font-weight: normal;
     font-style: normal;
-}
+} /* Fuente DejaVu Serif utilizada para el contenido general*/
 
 @font-face {
     font-family: "DejaVu Serif";
     src: url("../assets/fonts/dejavu-serif.woff2") format("woff2");
     font-weight: normal;
     font-style: normal;
-}
+} /* Fuente DejaVu Serif utilizada en títulos*/
 
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 } /* Para que los bordes no aumenten el tamaño de los elementos */
-
 
 
 .borde-prueba {
@@ -40,6 +39,16 @@
     background-color: #0A0A0A;
 }
 
+html {
+    font-size: 16px;
+}
+
+@media (max-width: 600px) {
+    html {
+        font-size: 10px;
+    }
+}
+
 h1, h2 {
     font-family: "DejaVu Serif";
     font-style: normal;
@@ -47,15 +56,15 @@ h1, h2 {
 }
 
 h1 {
-    color: #00BFFF;
-    font-size: 4vw;
+    color: #FFA500;
+    font-size: 4rem;
     text-shadow: 2px 2px 0px #0A0A0A;
 }
 
 h2 {
     color: #FFFFFF;
-    font-size: 1.5vw;
-    margin-bottom: 0.5vw;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
 }
 
 img {
@@ -86,6 +95,16 @@ img {
     display: flex;
     flex-direction: row;
     align-items: center;
+    width: 100%;
+    max-width: 100vw;
+}
+
+.global-header-title {
+    font-size: 2.5rem;
+}
+
+.second-title-part {
+    color: #00BFFF;
 }
 
 .global-header-icon {
@@ -94,9 +113,15 @@ img {
     align-items: center;
 }
 
+.global-header-icon img {
+  width: 64px;
+  height: auto;
+  margin-left: 1rem;
+}
+
 .global-nav {
     flex-grow: 1;
-    font-size: 1.5vw;
+    font-size: 1.2rem;
 }
 
 .main {
@@ -124,6 +149,12 @@ img {
 
     margin: 0;
     padding: 0;
+}
+
+@media (max-width:600px) {
+    .nav-items {
+        display: none;
+    }
 }
 
 .nav-items a:link, a:visited{
