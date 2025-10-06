@@ -1,215 +1,246 @@
-html, body {
-    font-family: "Lexend", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
+@font-face {
+    font-family: "DejaVu Sans";
+    src: url("../assets/fonts/dejavu-sans.woff2") format("woff2");
+    font-weight: normal;
     font-style: normal;
+} /* Fuente DejaVu Serif utilizada para el contenido general*/
 
-    height: 100%;
-    width: 100%;
+@font-face {
+    font-family: "DejaVu Serif";
+    src: url("../assets/fonts/dejavu-serif.woff2") format("woff2");
+    font-weight: normal;
+    font-style: normal;
+} /* Fuente DejaVu Serif utilizada en títulos*/
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+} /* Para que los bordes no aumenten el tamaño de los elementos */
+
+
+.borde-prueba {
+    border: 4px solid white;
+}
+
+.principal-color {
+    color: #00BFFF;
+}
+
+.principal-color-background {
+    background-color: #00BFFF;
+}
+
+.white-color {
+    color: #FFFFFF;
+}
+
+.black-color-background {
+    background-color: #0A0A0A;
+}
+
+html {
+    font-size: 16px;
+}
+
+@media (max-width: 600px) {
+    html {
+        font-size: 10px;
+    }
+}
+
+h1, h2 {
+    font-family: "DejaVu Serif";
+    font-style: normal;
     margin: 0;
 }
 
-.container-grid {
-    display: grid;
-    grid-template-areas:
-        "header"
-        "main"
-        "footer";
-    grid-template-rows: 10% auto 10%;
+h1 {
+    color: #FFA500;
+    font-size: 4rem;
+    text-shadow: 2px 2px 0px #0A0A0A;
 }
 
-.header-container {
+h2 {
+    color: #FFFFFF;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.container {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+
+    font-family: "DejaVu Sans";
+    font-weight: normal;
+    color: #BBBBBB;
+
     display: grid;
+    grid-template-areas: "header"
+                         "main"
+                         "footer";
+    grid-template-rows: 15vh auto 15vh;
+}
+
+.global-header {
+    position: sticky;
+    top: 0px;
     grid-area: header;
-    background-color: antiquewhite;
-    grid-template-areas:
-        "title-container nav-container";
-    grid-template-columns: 20% auto;
-    /* border: 2px solid black; */
-}
-
-.title-container {
     display: flex;
-    justify-content: center;
+    flex-direction: row;
     align-items: center;
-    /* border: 2px solid black; */
+    width: 100%;
+    max-width: 100vw;
 }
 
-.nav-container {
-    grid-area: nav-container;
-    align-content: center;
-    /* border: 2px solid black; */
+.global-header-title {
+    font-size: 2.5rem;
+    margin-left: 2px;
 }
 
-.navlink-container {
-    display: grid;
-    grid-template-columns: auto auto auto auto;
-    justify-content: space-around;
-    list-style-type: none;
-    /* border: 2px solid black; */
+.second-title-part {
+    color: #00BFFF;
 }
 
+.global-header-icon {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
 
-.principal-main-container {
+.global-header-icon img {
+  width: 64px;
+  height: auto;
+  margin-left: 1rem;
+}
+
+.global-nav {
+    flex-grow: 1;
+    font-size: 1.2rem;
+}
+
+.main {
     grid-area: main;
+}
+
+.main-home {
     display: grid;
-    grid-template-areas:
-        "principal"
-        "tables";
-    grid-template-rows: 400px auto;
-    /* border: 2px solid black; */
+    grid-template-areas: "home-principal"
+                         "home-rankings";
+    grid-template-rows: 60vh 40vh;
 }
 
-.principal-section {
-    grid-area: principal;
-    align-content: center;
-    justify-items: center;
-
-    background-image: url("../assets/images/principal_background.png");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    color: white;
-    /* border: 2px solid black; */
-}
-
-
-.tables-container {
-    grid-area: tables;
-    display: grid;
-    grid-template-areas:
-        "title-tables title-tables"
-        "ranking onlineusers";
-
-    justify-content: space-around;
-    justify-items: center;
-
-    background-color: rgb(185, 150, 105);
-    /* border: 2px solid black; */
-}
-
-.tables-title {
-    grid-area: title-tables;
-}
-
-.ranking-table {
-
-    grid-area: ranking;
-}
-
-.onlineusers-table {
-    grid-area: onlineusers;
-}
-
-
-
-.footer-container {
+.global-footer {
     grid-area: footer;
-    display: grid;
-    justify-content: center;
-    align-items: center;
-    background-color: chocolate;
-    /* border: 2px solid black; */
+    justify-items: center;
+    align-content: center;
+    margin: 4rem 0 2rem 0;
 }
 
-nav a:link, nav a:visited {
-    font-size: 20px;
-    font-weight: 600;
-    color: saddlebrown;
+.nav-items {
+    display: flex;
+    list-style: none;
+    flex-direction: row;
+    justify-content: space-evenly;
+
+    margin: 0;
+    padding: 0;
+}
+
+@media (max-width:600px) {
+    .nav-items {
+        display: none;
+    }
+}
+
+.nav-items a:link, a:visited{
+    color: #FFFFFF;
     text-decoration: none;
 }
 
-a:link:active, a:visited:active {
-  color: (internal value);
+.home-principal {
+    grid-area: home-principal;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)), url(../assets/images/home_background.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }
 
-table, th{
-    border: 3px solid rgb(93, 68, 5);
-    background-color: bisque;
+.home-principal-p {
+    text-shadow: 4px 2px 6px #0A0A0A;
 }
 
-td {
-    border: 3px solid gray;
-    background-color: antiquewhite;
+.home-rankings {
+    grid-area: home-rankings;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: 4rem;
 }
 
-/* Usuarios Page */
-
-.users-main-container {
-    grid-area: main;
-    background-color: rgb(185, 150, 105);
+.home-player-ranking {
     justify-items: center;
 }
 
-.userlist-section {
+.home-clan-ranking {
     justify-items: center;
 }
 
-/* Clans Page */
-
-.clans-main-container {
-    grid-area: main;
-    display: grid;
-    grid-template-areas:
-        "title-clans"
-        "clanlist";
-    background-color: rgb(185, 150, 105);
-    justify-items: center;
+.ranking-table {
+    border-collapse: separate;
+    border-spacing: 6px;
 }
 
-.clans-title {
-    grid: title-clans;
+.ranking-table th{
+    background-color: #1A1A1A;
+    border: 2px solid #444444;
+    border-radius: 3px;
+    color: #FFFFFF;
 }
 
-.clanslist-section {
-    grid: clanlist;
-    display: grid;
-    grid-template-columns: auto auto auto;
-}
-
-.clan-box {
-    display: grid;
-    height: 200px;
-    width: 200px;
-    border: 4px solid black;
-    border-radius: 10px;
-    margin: 10px;
-    background-color: peachpuff;
+.ranking-table th, td{
     text-align: center;
+    padding: 4px 10px;
 }
 
-/* Especific Clan page */
-
-.clan-main-container {
-    grid-area: main;
-    display: grid;
-    grid-template-areas:
-        "title-clan"
-        "claninfo";
-    grid-template-rows: 20% 80%;
-    background-color: rgb(185, 150, 105);
-    justify-items: center;
+.ranking-table tr:nth-child(odd) {
+  background-color: #1A1A1A;
 }
 
-.clan-title {
-    grid: title-clan;
+.ranking-table tr:nth-child(even) {
+  background-color: #0A0A0A;
 }
 
-.claninfo-section {
-    width: 30%;
-    grid: claninfo;
-    display: grid;
-    grid-template-areas:
-        "membertable clantable";
-    grid-template-columns: 40% 40%;
-    grid-template-rows: auto auto;
-    justify-content: space-around;
+.search-form {
+    width: 50%;
+    min-height: 6vh;
 }
 
-.member-table {
-    grid: membertable;
+.search-bar {
+    width: 100%;
+    height: 100%;
+    background-color: #0A0A0A;
+    border: #00BFFF solid 1px;
+    border-radius: 6px;
+    color: #BBBBBB;
+    font-family: "DejaVu Sans";
+    padding: 0px 20px ;
 }
 
-.clan-table {
-    grid: clantable;
+.text-input {
+    background-color: #0A0A0A;
+    border: #444444 solid 2px;
+    border-radius: 2px;
+    color: #BBBBBB;
 }
