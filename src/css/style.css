@@ -221,6 +221,9 @@ hr {
     border: #444444 solid 2px;
     border-radius: 2px;
     color: #BBBBBB;
+    width: 20rem;
+    height: 32px;
+
 }
 
 .action-button {
@@ -322,4 +325,23 @@ hr {
     flex-grow: 0;
     align-self: center;
     width: auto;
+}
+
+
+/*
+////////////////////////////////
+///////   LOGIN PAGE   /////////
+////////////////////////////////
+*/
+
+.main-login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.login-image {
+    max-width: 10rem;
+    height: auto;
 }
