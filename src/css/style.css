@@ -237,6 +237,7 @@ hr {
     color: #FFFFFF;
     border: 1px solid #00BFFF;
     border-radius: 5px;
+    cursor: pointer;
     padding: 5px 6px 5px 6px;
     font-family: "DejaVu Sans";
     font-size: 0.9rem;
