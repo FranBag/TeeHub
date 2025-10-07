@@ -29,8 +29,8 @@
         <section class="home-principal">
             <h1>TeeHub</h1>
             <p class="home-principal-p"><strong>Estadísticas de Jugadores</strong> & <strong>Comunidad de Clanes</strong></p>
-            <form action="" method="get" class="search-form">
-                <input type="text" name="player" placeholder="Buscar un jugador..." class="search-bar" autofocus required>
+            <form action="/jugador" class="search-form">
+                <input type="text" name="player_name" placeholder="Buscar un jugador..." class="search-bar" id="home-search-bar" autofocus required>
             </form>
         </section>
         <section class="home-rankings">
@@ -110,6 +110,9 @@
         <div>2025 Bagneres Francisco <a href="https://github.com/FranBag/TeeHub" class="principal-color">Github</a></div>
     </footer>
 
+    <button id="apretame">apretame</button>
+
+    <script type="text/javascript" src="./src/js/router.js"></script>
 </body>
 
 </html>

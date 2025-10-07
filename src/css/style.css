@@ -226,8 +226,9 @@ hr {
     border-radius: 2px;
     color: #BBBBBB;
     width: 20rem;
-    height: 32px;
-
+    height: 36px;
+    padding: 0 10px;
+    font-size: 0.9rem;
 }
 
 .action-button {
