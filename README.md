@@ -1,27 +1,38 @@
 # TeeHub
 
-**Plataforma web enfocada en la consulta de puntuaciones y estadísticas de jugadores de DDraceNetwork**  
+**Plataforma web para la comunidad de DDraceNetwork - Consulta de estadísticas y Sistema de clanes**  
 
 ---
 
-## **Descripción**  
-TeeHub es una plataforma web orientada a la comunidad de jugadores del juego
-DDraceNetwork. La página permitirá consultar puntuaciones y estadísticas de jugadores, a
-través de la integración con una API del mismo juego. A su vez, los usuarios podrán
-registrarse, crear clanes y unirse a ellos, como también serán capaces de participar en la
-comunidad con publicaciones que incluyen mensajes, imágenes y videos.
-Así, TeeHub. busca ofrecer un espacio atractivo para jugadores, en donde se combine
-la competencia dada por el ranking, y la interacción social mediante los clanes.
+## Descripción
+TeeHub es una plataforma web orientada a la comunidad de jugadores de DDraceNetwork que permite consultar puntuaciones y estadísticas de jugadores mediante integración con diversas APIs públicas del juego. Los usuarios pueden registrarse, crear clanes, unirse a ellos y visualizar novedades publicadas por los dueños de cada clan.
+La plataforma busca ofrecer un espacio atractivo donde se combine la competencia a través del ranking con la interacción social mediante los clanes.
 
 ---
 
-## **Datos del Trabajo**  
-| **Materias** |Paradigmas y Lenguajes de Programación III| 
+## Tecnologías Utilizadas
+### Frontend
+- HTML5
+- CSS3
+- JavaScript Vanilla
+
+### Backend (aún no realizado)
+- PHP
+- MySQL
+
+### APIs
+- [API pública de DDStats](https://ddstats.tw/)
+
+---
+
+## Datos del Trabajo 
+| **Materia**  |Paradigmas y Lenguajes de Programación III| 
 |--------------|------------------------------------------|  
 | **Profesor** | Mgter. Encina Agustín.                   |   
-| **Alumnos**  | Bagneres Francisco                       |  
+| **Alumno**   | Bagneres Francisco                       |  
   
-
 ---
-Link del informe
-[Click aquí]()
+
+## Enlaces Importantes
+- Documentación del Proyecto (Informe)
+- [Sitio Online](https://teehub-franbag.netlify.app/)
