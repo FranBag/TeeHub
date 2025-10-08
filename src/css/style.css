@@ -452,8 +452,9 @@ hr {
 }
 
 .primary-article {
-    display: grid;
-    grid-template-columns: 30% auto 30%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .primary-article-image {
@@ -466,4 +467,11 @@ hr {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+#player-not-found {
+    display: none;
+    text-align: center;
+    color: #ff5555;
+    margin-top: 2rem;
 }
