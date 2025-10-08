@@ -34,5 +34,5 @@ La plataforma busca ofrecer un espacio atractivo donde se combine la competencia
 ---
 
 ## Enlaces Importantes
-- Documentación del Proyecto (Informe)
+- [Documentación del Proyecto (Informe)](https://drive.google.com/file/d/1VYbuiACKRV-nSBHKQHuWZcfOlYCTX0Ma/view?usp=sharing)
 - [Sitio Online](https://teehub-franbag.netlify.app/)
