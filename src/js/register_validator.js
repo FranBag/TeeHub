@@ -57,9 +57,24 @@ document.addEventListener("DOMContentLoaded", () => {
             if (!validator.equals(password, repeatPassword)) {
                 throw new Error("Las contraseñas no coinciden.");
             }
+
+            Toastify({
+                text: "¡Te has registrado correctamente!",
+                duration: 3000,
+                close: true,
+                gravity: "bottom",
+                position: "right",
+                stopOnFocus: true,
+                style: {
+                    background: "linear-gradient(to right, seagreen, yellowgreen)", // Tonos verdes
+                }
+            }).showToast();
+
         } catch (error) {
             showError(error);
         }
+
+
 
     });
 });
