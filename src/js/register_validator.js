@@ -7,6 +7,20 @@ document.addEventListener("DOMContentLoaded", () => {
     const passwordInput = document.getElementById("register-password");
     const repeatPasswordInput = document.getElementById("register-repeatpassword");
 
+    function showError(message) {
+        Toastify({
+            text: message,
+            duration: 3000,
+            close: true,
+            gravity: "bottom",
+            position: "right",
+            stopOnFocus: true,
+            style: {
+                background: "crimson",
+            },
+        }).showToast();
+    }
+
     registerForm.addEventListener("submit", (event) => {
         event.preventDefault();
 
@@ -44,7 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 throw new Error("Las contraseñas no coinciden.");
             }
         } catch (error) {
-            console.error(error);
+            showError(error);
         }
 
     });
