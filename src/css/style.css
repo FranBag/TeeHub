@@ -252,6 +252,11 @@ hr {
     background-color: #BBBBBB;
 }
 
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
 
 /*
 ////////////////////////////////
@@ -413,6 +418,9 @@ hr {
     height: auto;
 }
 
+#login-button {
+    align-self: center;
+}
 
 /*
 ////////////////////////////////
@@ -427,6 +435,9 @@ hr {
     gap: 0.8rem;
 }
 
+#register-button {
+    align-self: center;
+}
 
 /*
 ////////////////////////////////
