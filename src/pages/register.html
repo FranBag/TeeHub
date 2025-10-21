@@ -37,18 +37,18 @@
         <img src="../assets/images/teehub_icon192x192.png" alt="Ícono de TeeHub" class="login-register-image">
         <h2>Registro</h2>
 
-        <form action="" method="get" class="auth-form" id="register-form">
-            <input class="text-input" id="register-username" type="text" name="username" placeholder="Nombre de usuario" required>
+        <form action="" method="get" id="register-form" class="auth-form">
+            <input id="register-username" class="text-input"  type="text" name="username" placeholder="Nombre de usuario">
             
-            <input class="text-input" id="register-email" type="email" name="email" placeholder="Correo electrónico" required>
+            <input id="register-email" class="text-input"  type="email" name="email" placeholder="Correo electrónico">
 
-            <input class="text-input" id="register-playername" type="text" name="playername" placeholder="Nombre de jugador DDNet" required>
+            <input id="register-playername" class="text-input"  type="text" name="playername" placeholder="Nombre de jugador DDNet">
 
-            <input class="text-input" id="register-password" type="password" name="password" placeholder="Contraseña" required>
+            <input id="register-password" class="text-input"  type="password" name="password" placeholder="Contraseña">
 
-            <input class="text-input" id="register-repeatpassword" type="password" name="repeat-password" placeholder="Confirma contraseña" required>
+            <input id="register-repeatpassword" class="text-input"  type="password" name="repeat-password" placeholder="Confirma contraseña">
 
-            <button class="action-button" id="register-button" type="submit">Registrarse</button>
+            <button id="register-button" class="action-button"  type="submit">Registrarse</button>
 
         </form>
 
@@ -59,7 +59,9 @@
         <div>2025 Bagneres Francisco <a href="https://github.com/FranBag/TeeHub" class="principal-color">Github</a></div>
     </footer>
 
-    <script type="text/javascript" src="../js/nav_mobile.js"></script>
+    <script src="https://unpkg.com/validator@latest/validator.min.js"></script>
 
+    <script type="text/javascript" src="../js/nav_mobile.js"></script>
+    <script type="text/javascript" src="../js/register_validator.js"></script>
 </body>
 </html>
