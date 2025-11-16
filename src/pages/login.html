@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="icon" type="image/png" href="../assets/images/favicon.png">
     <title>TeeHub</title>
@@ -36,12 +37,12 @@
     <main class="main main-login">
         <img src="../assets/images/teehub_icon192x192.png" alt="Ícono de TeeHub" class="login-register-image">
         <h2>Login</h2>
-        <form action="" method="get" class="auth-form" id="login-form">
-            <input class="text-input" id="login-username" type="text" name="username" placeholder="Nombre de usuario" required>
+        <form action="" method="get" id="login-form" class="auth-form">
+            <input id="login-username" class="text-input" type="text" name="username" placeholder="Nombre de usuario">
 
-            <input class="text-input" id="login-password" type="password" name="password" placeholder="Contraseña" required>
+            <input id="login-password" class="text-input" type="password" name="password" placeholder="Contraseña">
 
-            <button class="action-button" id="login-button" type="submit">Ingresar</button>
+            <button id="login-button" class="action-button" type="submit">Ingresar</button>
         </form>
         <a href="">Olvidé mi contraseña</a>
         <p>¿No tienes una cuenta? <a href="./register.html" class="principal-color">Registrate</a></p>
@@ -52,7 +53,11 @@
         <div>2025 Bagneres Francisco <a href="https://github.com/FranBag/TeeHub" class="principal-color">Github</a></div>
     </footer>
 
+    <script type="text/javascript" src="https://unpkg.com/validator@latest/validator.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
     <script type="text/javascript" src="../js/nav_mobile.js"></script>
+    <script type="text/javascript" src="../js/login_validator.js"></script>
 
 </body>
 </html>
