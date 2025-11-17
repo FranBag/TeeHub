@@ -123,21 +123,22 @@
     <?php 
         require_once "../app/models/clan_model.php";
 
-        $clan_model = new ClanModel();
+        $model = new ClanModel();
 
         // $clan_model -> create("Khaotic");
 
         // $clan_model -> delete(3);
 
-        echo $clan_model -> updateName(1, "wOSOTES");
+        // echo ($model -> updatePlayername(9, "HOLe"));
 
-        $resultado = $clan_model -> get_all_actives();
+        $resultado = $model -> get_all_members_by_id(1);
 
         while ($row = mysqli_fetch_assoc($resultado)) {
             echo "<tr>";
-            echo "<td>" . $row["id_clan"] . "</td>";
-            echo "<td>" . htmlspecialchars($row["name"]) . "</td>";
-            echo "<td>" . htmlspecialchars($row["created_at"]) . "</td>";
+            // echo "<td>" . $row["id_user"] . "</td>";
+            echo "<td>" . htmlspecialchars($row["username"]) . "</td>";
+            echo "<td>" . htmlspecialchars($row["user_role"]) . "</td>";
+            // echo "<td>" . htmlspecialchars($row["clan_name"]) . "</td>";
             echo "</tr>";
         }
     ?>

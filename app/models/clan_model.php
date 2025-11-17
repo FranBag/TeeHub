@@ -67,9 +67,32 @@
 
             return $result;
         }
- 
 
-        public function updateName($id, $clan_name) {
+
+        public function get_all_members_by_id($id) {
+            $query = "SELECT username, user_role FROM UserClanRoleView WHERE id_clan = ?";
+            $prepared_sql = $this -> connection -> prepare($query);
+
+            if ($prepared_sql === false) {
+                throw New Exception("Error al preparar la consulta." . $this->connection->error);
+            }
+
+            $prepared_sql->bind_param("i", $id);
+            $prepared_sql->execute();
+
+            if ($prepared_sql->error){
+                $prepared_sql->close();
+                throw New Exception("Error al ejectutar la consulta." . $prepared_sql -> error);
+            }
+
+            $result = $prepared_sql->get_result();
+            $prepared_sql->close();
+
+            return $result;
+        }        
+
+
+        public function update_name($id, $clan_name) {
             $query = "UPDATE Clan SET `name` = ? WHERE id_clan = ?";
             $prepared_sql = $this -> connection -> prepare($query);
 
@@ -93,7 +116,7 @@
         }
         
 
-        public function updateLogo($id, $logo) {
+        public function update_logo($id, $logo) {
             $query = "UPDATE Clan SET logo = ? WHERE iod_clan = ?";
             $prepared_sql = $this -> connection -> prepare($query);
 

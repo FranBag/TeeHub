@@ -46,6 +46,63 @@
         }
 
 
+        public function get_all_clan_role() {
+            $result = mysqli_query($this -> connection, "SELECT username, user_role, clan_name FROM UserClanRoleView");
+
+            if ($result === false) {
+                throw new Exception("Error al ejecutar la consulta." . $this->connection->error);
+            }
+
+            return $result;
+        }
+
+
+        public function get_by_id($id) {
+            $query = "SELECT id_user, username, playername, email, created_at FROM  `User` WHERE id_user = ?";
+            $prepared_sql = $this -> connection -> prepare($query);
+
+            if ($prepared_sql === false) {
+                throw New Exception("Error al preparar la consulta." . $this->connection->error);
+            }
+
+            $prepared_sql->bind_param("i", $id);
+            $prepared_sql->execute();
+
+            if ($prepared_sql->error){
+                $prepared_sql->close();
+                throw New Exception("Error al ejectutar la consulta." . $prepared_sql -> error);
+            }
+
+            $result = $prepared_sql->get_result();
+            $prepared_sql->close();
+
+            return $result;
+        }
+
+
+        public function get_clan_role_by_id($id) {
+            $query = "SELECT username, user_role, clan_name FROM UserClanRoleView WHERE id_user = ?";
+            $prepared_sql = $this -> connection -> prepare($query);
+
+            if ($prepared_sql === false) {
+                throw New Exception("Error al preparar la consulta." . $this->connection->error);
+            }
+
+            $prepared_sql->bind_param("i", $id);
+            $prepared_sql->execute();
+
+            if ($prepared_sql->error){
+                $prepared_sql->close();
+                throw New Exception("Error al ejectutar la consulta." . $prepared_sql -> error);
+            }
+
+            $result = $prepared_sql->get_result();
+            $prepared_sql->close();
+
+            return $result;
+        }        
+
+
         public function get_by_username($username) {
             $query = "SELECT id_user, username, playername, email, created_at FROM  `User` WHERE username = ?";
             $prepared_sql = $this -> connection -> prepare($query);
@@ -92,7 +149,7 @@
         }
  
 
-        public function updateUsername($id, $username) {
+        public function update_username($id, $username) {
             $query = "UPDATE `User` SET username = ? WHERE id_user = ?";
             $prepared_sql = $this -> connection -> prepare($query);
 
@@ -116,7 +173,7 @@
         }
         
 
-        public function updatePlayername($id, $playername) {
+        public function update_playername($id, $playername) {
             $query = "UPDATE `User` SET playername = ? WHERE id_user = ?";
             $prepared_sql = $this -> connection -> prepare($query);
 
@@ -140,7 +197,7 @@
         }
 
 
-        public function updatePassword($id, $pass) {
+        public function update_password($id, $pass) {
             $query = "UPDATE `User` SET pass = ? WHERE id_user = ?";
             $prepared_sql = $this -> connection -> prepare($query);
 

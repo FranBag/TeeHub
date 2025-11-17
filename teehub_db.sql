@@ -20,7 +20,7 @@ CREATE TABLE Clan (
 	logo BLOB -- ver que onda acá
 );
 
-CREATE TABLE UserRoleXClan (
+CREATE TABLE User_Role_Clan (
 	id_role INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 	`role` ENUM("OWNER", "MEMBER") DEFAULT "MEMBER",
 	id_user INT UNSIGNED,
@@ -41,7 +41,41 @@ CREATE TABLE Post (
 	FOREIGN KEY (id_clan) REFERENCES Clan(id_clan)
 );
 
-insert into `User` (email, username, playername, pass) values ("franbag@gmail.com", "fran", "francisco", "fran123");
-insert into `User` (email, username, playername, pass) values ("beruno@gmail.com", "bruno", "brunoo", "bruno123");
+insert into `User` (email, username, playername, pass) values
+("fran@gmail.com", "fran", "fran", "fran123"),
+("bruno@gmail.com", "bruno", "bruno", "bruno123"),
+("pedro@gmail.com", "pedro", "pedro", "pedro123"),
+("juan@gmail.com", "juan", "juan", "juan123"),
+("maria@gmail.com", "maria", "maria", "maria123");
+
+insert into Clan (`name`) values
+("Clan1"),
+("Clan2"),
+("Clan3");
+
+insert into User_Role_Clan (`role`, id_user, id_clan) values
+("OWNER", 1, 1),
+("MEMBER", 2, 1),
+("OWNER", 3, 3),
+("OWNER", 4, 2),
+("MEMBER", 5, 1);
+
 SELECT * FROM `User`;
 SELECT * FROM Clan;
+
+CREATE VIEW UserClanRoleView AS
+SELECT 
+    u.id_user,
+    u.username, 
+    r.`role` AS user_role,
+    c.id_clan,
+    c.`name` AS clan_name 
+FROM `User` u
+INNER JOIN User_Role_Clan r ON u.id_user = r.id_user
+INNER JOIN Clan c ON c.id_clan = r.id_clan;
+
+SELECT username, user_role, clan_name FROM UserClanRoleView;
+SELECT username, user_role, clan_name FROM UserClanRoleView WHERE id_clan = 1;
+SELECT username, user_role, clan_name FROM UserClanRoleView WHERE id_user = 2;
+
+
