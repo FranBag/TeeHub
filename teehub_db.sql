@@ -60,8 +60,8 @@ insert into User_Role_Clan (`role`, id_user, id_clan) values
 ("OWNER", 4, 2),
 ("MEMBER", 5, 1);
 
-SELECT * FROM `User`;
-SELECT * FROM Clan;
+CREATE USER "backend" IDENTIFIED BY "backend_teehub";
+GRANT SELECT, INSERT, UPDATE ON teehub.* TO "backend";
 
 CREATE VIEW UserClanRoleView AS
 SELECT 
@@ -73,6 +73,10 @@ SELECT
 FROM `User` u
 INNER JOIN User_Role_Clan r ON u.id_user = r.id_user
 INNER JOIN Clan c ON c.id_clan = r.id_clan;
+
+
+SELECT * FROM `User`;
+SELECT * FROM Clan;
 
 SELECT username, user_role, clan_name FROM UserClanRoleView;
 SELECT username, user_role, clan_name FROM UserClanRoleView WHERE id_clan = 1;
