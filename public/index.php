@@ -121,26 +121,23 @@
     <script type="text/javascript" src="../app/views/nav_mobile.js"></script>
 
     <?php 
-        echo __DIR__;
-        require_once "../app/models/user_model.php";
+        require_once "../app/models/clan_model.php";
 
-        $user_model = new UserModel();
+        $clan_model = new ClanModel();
 
-        // $user_model -> create("fbagneres@yaoo.com", "francisccho", "frannn");
+        // $clan_model -> create("Khaotic");
 
-        $user_model -> delete(3);
+        // $clan_model -> delete(3);
 
-        // $resultado = $user_model -> updateUsername(6, "Franciscocho2");
+        echo $clan_model -> updateName(1, "wOSOTES");
 
-        $resultado = $user_model -> get_all_actives();
-
-        $usuarios = [];
+        $resultado = $clan_model -> get_all_actives();
 
         while ($row = mysqli_fetch_assoc($resultado)) {
             echo "<tr>";
-            echo "<td>" . $row["id_user"] . "</td>";
-            echo "<td>" . htmlspecialchars($row["email"]) . "</td>";
-            echo "<td>" . htmlspecialchars($row["username"]) . "</td>";
+            echo "<td>" . $row["id_clan"] . "</td>";
+            echo "<td>" . htmlspecialchars($row["name"]) . "</td>";
+            echo "<td>" . htmlspecialchars($row["created_at"]) . "</td>";
             echo "</tr>";
         }
     ?>

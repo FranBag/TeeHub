@@ -14,7 +14,7 @@ CREATE TABLE `User` (
 
 CREATE TABLE Clan (
 	id_clan INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-	name VARCHAR(15) UNIQUE NOT NULL,
+	`name` VARCHAR(15) UNIQUE NOT NULL,
 	created_at TIMESTAMP DEFAULT current_timestamp,
 	deleted_at TIMESTAMP,
 	logo BLOB -- ver que onda acá
@@ -22,7 +22,7 @@ CREATE TABLE Clan (
 
 CREATE TABLE UserRoleXClan (
 	id_role INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-	role ENUM("OWNER", "MEMBER") DEFAULT "MEMBER",
+	`role` ENUM("OWNER", "MEMBER") DEFAULT "MEMBER",
 	id_user INT UNSIGNED,
 	FOREIGN KEY (id_user) REFERENCES User(id_user),
 	id_clan INT UNSIGNED,
@@ -35,6 +35,8 @@ CREATE TABLE Post (
 	content BLOB, -- ver que onda acá
 	created_at TIMESTAMP DEFAULT current_timestamp,
 	deleted_at TIMESTAMP,
+	id_user INT UNSIGNED,
+	FOREIGN KEY (id_user) REFERENCES User(id_user),
 	id_clan INT UNSIGNED,
 	FOREIGN KEY (id_clan) REFERENCES Clan(id_clan)
 );
@@ -42,3 +44,4 @@ CREATE TABLE Post (
 insert into `User` (email, username, playername, pass) values ("franbag@gmail.com", "fran", "francisco", "fran123");
 insert into `User` (email, username, playername, pass) values ("beruno@gmail.com", "bruno", "brunoo", "bruno123");
 SELECT * FROM `User`;
+SELECT * FROM Clan;
