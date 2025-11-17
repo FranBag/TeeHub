@@ -6,6 +6,7 @@ CREATE TABLE `User` (
 	id_user INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 	email VARCHAR(255) UNIQUE NOT NULL,
 	username VARCHAR(15) UNIQUE NOT NULL,
+	pass VARCHAR(50) NOT NULL,
 	playername VARCHAR(15),
 	created_at TIMESTAMP DEFAULT current_timestamp,
 	deleted_at TIMESTAMP
