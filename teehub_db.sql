@@ -39,5 +39,6 @@ CREATE TABLE Post (
 	FOREIGN KEY (id_clan) REFERENCES Clan(id_clan)
 );
 
-insert into `User` (email, username, playername) values ("franbag@gmail.com", "fran", "francisco");
+insert into `User` (email, username, playername, pass) values ("franbag@gmail.com", "fran", "francisco", "fran123");
+insert into `User` (email, username, playername, pass) values ("beruno@gmail.com", "bruno", "brunoo", "bruno123");
 SELECT * FROM `User`;

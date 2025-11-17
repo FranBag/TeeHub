@@ -120,6 +120,30 @@
 
     <script type="text/javascript" src="../app/views/nav_mobile.js"></script>
 
+    <?php 
+        echo __DIR__;
+        require_once "../app/models/user_model.php";
+
+        $user_model = new UserModel();
+
+        // $user_model -> create("fbagneres@yaoo.com", "francisccho", "frannn");
+
+        $user_model -> delete(3);
+
+        // $resultado = $user_model -> updateUsername(6, "Franciscocho2");
+
+        $resultado = $user_model -> get_all_actives();
+
+        $usuarios = [];
+
+        while ($row = mysqli_fetch_assoc($resultado)) {
+            echo "<tr>";
+            echo "<td>" . $row["id_user"] . "</td>";
+            echo "<td>" . htmlspecialchars($row["email"]) . "</td>";
+            echo "<td>" . htmlspecialchars($row["username"]) . "</td>";
+            echo "</tr>";
+        }
+    ?>
 </body>
 
 </html>

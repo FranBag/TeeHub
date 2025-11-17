@@ -1,5 +1,5 @@
 <?php 
-    require_once "../config/db_connection.php";
+    require_once __DIR__ . "/../config/db_connection.php";
 
     class UserModel {
         private $database;
@@ -35,8 +35,8 @@
         }
 
 
-        public function get_all() {
-            $result = mysqli_query($this -> connection, "SELECT id_user, username, playername, email FROM `User`");
+        public function get_all_actives() {
+            $result = mysqli_query($this -> connection, "SELECT id_user, username, playername, email FROM `User` WHERE deleted_at IS NULL");
 
             if ($result === false) {
                 throw new Exception("Error al ejecutar la consulta." . $this->connection->error);
@@ -47,7 +47,7 @@
 
 
         public function get_by_username($username) {
-            $query = "SELECT username, playername, email, created_at FROM  `User` WHERE username = ?";
+            $query = "SELECT id_user, username, playername, email, created_at FROM  `User` WHERE username = ?";
             $prepared_sql = $this -> connection -> prepare($query);
 
             if ($prepared_sql === false) {
@@ -70,7 +70,7 @@
 
 
         public function get_by_email($email) {
-            $query = "SELECT username, playername, email, created_at FROM  `User` WHERE email = ?";
+            $query = "SELECT id_user, username, playername, email, created_at FROM  `User` WHERE email = ?";
             $prepared_sql = $this -> connection -> prepare($query);
 
             if ($prepared_sql === false) {
