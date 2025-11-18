@@ -38,6 +38,9 @@
             case "create":
                 $controller -> create_user();
                 break;
+            case "login":
+                $controller -> login_user();
+                break;
             default:
                 echo json_encode(["status"=>"error", "message"=>"Acción inválida" . $action]);
                 break;

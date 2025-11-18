@@ -58,7 +58,7 @@
 
 
         public function get_by_id($id) {
-            $query = "SELECT id_user, username, playername, email, created_at FROM  `User` WHERE id_user = ?";
+            $query = "SELECT id_user, username, playername, email, pass, created_at FROM  `User` WHERE id_user = ?";
             $prepared_sql = $this -> connection -> prepare($query);
 
             if ($prepared_sql === false) {
@@ -104,7 +104,7 @@
 
 
         public function get_by_username($username) {
-            $query = "SELECT id_user, username, playername, email, created_at FROM  `User` WHERE username = ?";
+            $query = "SELECT id_user, username, playername, email, pass, created_at FROM  `User` WHERE username = ?";
             $prepared_sql = $this -> connection -> prepare($query);
 
             if ($prepared_sql === false) {
@@ -127,7 +127,7 @@
 
 
         public function get_by_email($email) {
-            $query = "SELECT id_user, username, playername, email, created_at FROM  `User` WHERE email = ?";
+            $query = "SELECT id_user, username, playername, email, pass, created_at FROM  `User` WHERE email = ?";
             $prepared_sql = $this -> connection -> prepare($query);
 
             if ($prepared_sql === false) {

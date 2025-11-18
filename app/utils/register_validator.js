@@ -82,7 +82,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 user_pass: password,
                 playername: playername
             };
-
             const form_body = new URLSearchParams(user_data).toString();
 
             fetch(url.concat("?action=create"), {
@@ -107,9 +106,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 showMessage("¡Te has registrado correctamente!");
             })
             .catch(error => {
-                console.log(error);
                 showError(error);
-                // console.error("Ocurrió un error al realizar la petición:", error);
             });
 
 
