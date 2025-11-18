@@ -24,7 +24,7 @@
                     echo json_encode(["status"=> "warning", "message"=> "No se ha podido crear el usuario."]);
                 }
             } catch (Exception $e) {
-                echo ["status"=> "error", "message"=> "Ocurrió un error al crear el usuario: " . $e ->getMessage()];
+                echo json_encode(["status"=> "error", "message"=> "Ocurrió un error al crear el usuario: " . $e ->getMessage()]);
             }
         }
 

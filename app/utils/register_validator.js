@@ -31,6 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const repeatPassword = repeatPasswordInput.value;
 
         try {
+
             if (validator.isEmpty(username)) {
                 throw new Error("El nombre de usuario no puede estar vacío.");
             }
@@ -54,9 +55,44 @@ document.addEventListener("DOMContentLoaded", () => {
             if (validator.isEmpty(repeatPassword)) {
                 throw new Error("Debes confirmar la contraseña.");
             }
+
             if (!validator.equals(password, repeatPassword)) {
                 throw new Error("Las contraseñas no coinciden.");
             }
+
+            const url = "../routers/user_router.php";
+            // const url = "../controllers/user_controller.php";
+
+            const user_data = {
+                user_email : email,
+                username: username,
+                user_pass: password,
+                playername: playername
+            };
+            
+            fetch(url.concat("?action=active"), {
+                method: "GET",
+                // method: "POST",
+                // headers: {
+                //     "Content-Type": "application/json"
+                // },
+                // body: JSON.stringify(user_data)
+            })
+            .then(response => {
+                if(!response.ok) {
+                    throw new Error(response.status);
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log("Status de la respuesta:", data.status);
+                
+                const mensajeDelServidor = data.message;
+                console.log("Mensaje del servidor:", mensajeDelServidor);
+            })
+            .catch(error => {
+                console.error("Ocurrió un error al realizar la petición:", error);
+            });
 
             Toastify({
                 text: "¡Te has registrado correctamente!",
@@ -73,8 +109,6 @@ document.addEventListener("DOMContentLoaded", () => {
         } catch (error) {
             showError(error);
         }
-
-
 
     });
 });
