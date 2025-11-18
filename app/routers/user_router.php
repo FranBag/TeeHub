@@ -5,7 +5,7 @@
     
     $request_method = $_SERVER["REQUEST_METHOD"];
 
-    if($request_method === "GET" ) {
+    if($request_method === "GET") {
         $action = $_GET["action"] ?? "";
 
         switch ($action) {
@@ -19,6 +19,19 @@
                 echo json_encode(["status"=>"error", "message"=>"Acción inválida" . $action]);
                 break;
         }
+        
+    } elseif ($request_method === "POST") {
+        $action = $_GET["action"] ?? "";
+        switch ($action) {
+            case "create":
+                $controller -> create_user();
+                break;
+            default:
+                echo json_encode(["status"=>"error", "message"=>"Acción inválida" . $action]);
+                break;
+        }
+    } else {
+        echo json_encode(["status"=>"error", "message"=>"Método HTTP invalido"]);
     }
 
     // echo json_encode($request_method);

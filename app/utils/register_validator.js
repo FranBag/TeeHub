@@ -7,6 +7,20 @@ document.addEventListener("DOMContentLoaded", () => {
     const passwordInput = document.getElementById("register-password");
     const repeatPasswordInput = document.getElementById("register-repeatpassword");
 
+    function showMessage(message) {
+        Toastify({
+            text: message,
+            duration: 3000,
+            close: true,
+            gravity: "bottom",
+            position: "right",
+            stopOnFocus: true,
+            style: {
+                background: "linear-gradient(to right, seagreen, yellowgreen)", // Tonos verdes
+            }
+        }).showToast();
+    }
+    
     function showError(message) {
         Toastify({
             text: message,
@@ -61,7 +75,6 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
             const url = "../routers/user_router.php";
-            // const url = "../controllers/user_controller.php";
 
             const user_data = {
                 user_email : email,
@@ -69,14 +82,15 @@ document.addEventListener("DOMContentLoaded", () => {
                 user_pass: password,
                 playername: playername
             };
-            
-            fetch(url.concat("?action=active"), {
-                method: "GET",
-                // method: "POST",
-                // headers: {
-                //     "Content-Type": "application/json"
-                // },
-                // body: JSON.stringify(user_data)
+
+            const form_body = new URLSearchParams(user_data).toString();
+
+            fetch(url.concat("?action=create"), {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded"
+                },
+                body: form_body
             })
             .then(response => {
                 if(!response.ok) {
@@ -85,26 +99,20 @@ document.addEventListener("DOMContentLoaded", () => {
                 return response.json();
             })
             .then(data => {
-                console.log("Status de la respuesta:", data.status);
-                
-                const mensajeDelServidor = data.message;
-                console.log("Mensaje del servidor:", mensajeDelServidor);
+                if(!(data.status === "success")) {
+                    throw new Error(data.message);
+                }
+            })
+            .then(() => {
+                showMessage("¡Te has registrado correctamente!");
             })
             .catch(error => {
-                console.error("Ocurrió un error al realizar la petición:", error);
+                console.log(error);
+                showError(error);
+                // console.error("Ocurrió un error al realizar la petición:", error);
             });
 
-            Toastify({
-                text: "¡Te has registrado correctamente!",
-                duration: 3000,
-                close: true,
-                gravity: "bottom",
-                position: "right",
-                stopOnFocus: true,
-                style: {
-                    background: "linear-gradient(to right, seagreen, yellowgreen)", // Tonos verdes
-                }
-            }).showToast();
+
 
         } catch (error) {
             showError(error);

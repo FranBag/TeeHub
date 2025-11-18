@@ -19,12 +19,12 @@
                 $res = $this -> Model -> create($email, $username, $pass, $playername);
 
                 if ($res == 1) {
-                    echo json_encode(["status"=> "sucess", "message"=> "Usuario creado con éxito"]);
+                    echo json_encode(["status"=> "success", "message"=> "¡Te has registrado correctamente!"]);
                 } else {
                     echo json_encode(["status"=> "warning", "message"=> "No se ha podido crear el usuario."]);
                 }
             } catch (Exception $e) {
-                echo json_encode(["status"=> "error", "message"=> "Ocurrió un error al crear el usuario: " . $e ->getMessage()]);
+                echo json_encode(["status"=> "error", "message"=> "Ocurrió un error al crear el usuario: " . $e]);
             }
         }
 
@@ -35,7 +35,7 @@
                 $data = $res -> fetch_all(MYSQLI_ASSOC);
                 $res -> free();
 
-                echo json_encode(["status"=> "sucess", "message"=> "Consulta realizada", "content"=> $data]);
+                echo json_encode(["status"=> "success", "message"=> "Consulta realizada", "content"=> $data]);
             } catch (Exception $e) {
                 echo json_encode(["status"=> "error", "message"=> "Ocurrió un error al obtener los usuarios: " . $e->getMessage()]);
             }
@@ -48,7 +48,7 @@
                 $data = $res -> fetch_all(MYSQLI_ASSOC);
                 $res -> free();
                 
-                echo json_encode(["status"=> "sucess", "message"=> "Consulta realizada", "content"=> $data]);
+                echo json_encode(["status"=> "success", "message"=> "Consulta realizada", "content"=> $data]);
             } catch (Exception $e) {
                 echo json_encode(["status"=> "error", "message"=> "Ocurrió un error al obtener los roles de clan." . $e->getMessage()]);
             }

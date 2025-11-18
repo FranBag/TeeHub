@@ -121,22 +121,32 @@
     <script type="text/javascript" src="../app/views/nav_mobile.js"></script>
 
     <?php 
-        require_once "../app/controllers/user_controller.php";
+
+        require_once __DIR__."/../app/models/user_model.php";
+        require_once __DIR__."/../app/controllers/user_controller.php";
+
+        $model = new UserModel();
         $controller = new UserController();
 
-        $controller -> get_all_users_active(); 
+        // $model -> get_all_actives();
+        echo $controller -> get_all_users_active();
 
-        // $data = $controller->get_all_users_clan_roles()["content"];
+        // require_once "../app/controllers/user_controller.php";
+        // $controller = new UserController();
 
-        // foreach ($data as $row) {
-        //         echo "<tr>";
-        //         // echo "<td>" . $row["id_user"] . "</td>";
-        //         echo "<td>" . htmlspecialchars($row["username"]) . "</td>";
-        //         echo "<td>" . htmlspecialchars($row["user_role"]) . "</td>";
-        //         // echo "<td>" . htmlspecialchars($row["email"]) . "</td>";
-        //         // echo "<td>" . htmlspecialchars($row["created_at"]) . "</td>";
-        //         echo "</tr>";
-        // }
+        // $controller -> get_all_users_active(); 
+
+        // // $data = $controller->get_all_users_clan_roles()["content"];
+
+        // // foreach ($data as $row) {
+        // //         echo "<tr>";
+        // //         // echo "<td>" . $row["id_user"] . "</td>";
+        // //         echo "<td>" . htmlspecialchars($row["username"]) . "</td>";
+        // //         echo "<td>" . htmlspecialchars($row["user_role"]) . "</td>";
+        // //         // echo "<td>" . htmlspecialchars($row["email"]) . "</td>";
+        // //         // echo "<td>" . htmlspecialchars($row["created_at"]) . "</td>";
+        // //         echo "</tr>";
+        // // }
 ?>
 </body>
 

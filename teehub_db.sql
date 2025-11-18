@@ -60,6 +60,7 @@ insert into User_Role_Clan (`role`, id_user, id_clan) values
 ("OWNER", 4, 2),
 ("MEMBER", 5, 1);
 
+DROP USER IF EXISTS "backend";
 CREATE USER "backend" IDENTIFIED BY "backend_teehub";
 GRANT SELECT, INSERT, UPDATE ON teehub.* TO "backend";
 
