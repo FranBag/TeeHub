@@ -19,12 +19,12 @@
                 $res = $this -> Model -> create($email, $username, $pass, $playername);
 
                 if ($res == 1) {
-                    return json_encode(["status"=> "sucess", "message"=> "Usuario creado con éxito"]);
+                    echo json_encode(["status"=> "sucess", "message"=> "Usuario creado con éxito"]);
                 } else {
-                    return json_encode(["status"=> "warning", "message"=> "No se ha podido crear el usuario."]);
+                    echo json_encode(["status"=> "warning", "message"=> "No se ha podido crear el usuario."]);
                 }
             } catch (Exception $e) {
-                return ["status"=> "error", "message"=> "Ocurrió un error al crear el usuario: " . $e ->getMessage()];
+                echo ["status"=> "error", "message"=> "Ocurrió un error al crear el usuario: " . $e ->getMessage()];
             }
         }
 
@@ -35,9 +35,9 @@
                 $data = $res -> fetch_all(MYSQLI_ASSOC);
                 $res -> free();
 
-                return json_encode(["status"=> "sucess", "message"=> "Consulta realizada", "content"=> $data]);
+                echo json_encode(["status"=> "sucess", "message"=> "Consulta realizada", "content"=> $data]);
             } catch (Exception $e) {
-                return json_encode(["status"=> "error", "message"=> "Ocurrió un error al obtener los usuarios: " . $e->getMessage()]);
+                echo json_encode(["status"=> "error", "message"=> "Ocurrió un error al obtener los usuarios: " . $e->getMessage()]);
             }
         }
 
@@ -48,9 +48,9 @@
                 $data = $res -> fetch_all(MYSQLI_ASSOC);
                 $res -> free();
                 
-                return json_encode(["status"=> "sucess", "message"=> "Consulta realizada", "content"=> $data]);
+                echo json_encode(["status"=> "sucess", "message"=> "Consulta realizada", "content"=> $data]);
             } catch (Exception $e) {
-                return json_encode(["status"=> "error", "message"=> "Ocurrió un error al obtener los roles de clan." . $e->getMessage()]);
+                echo json_encode(["status"=> "error", "message"=> "Ocurrió un error al obtener los roles de clan." . $e->getMessage()]);
             }
         }
     
@@ -59,16 +59,16 @@
             try {
                 $id = $_GET['id'] ?? null;
                 if (empty($id)) {
-                    return json_encode(["status"=> "error", "message"=> "No se proporcionó un ID de usuario."]);
+                    echo json_encode(["status"=> "error", "message"=> "No se proporcionó un ID de usuario."]);
                 }
 
                 $res = $this -> Model -> get_by_id($id);
                 $user = $res -> fetch_all(MYSQLI_ASSOC);
                 $res -> free();
 
-                return $user;
+                echo $user;
             } catch (Exception $e) {
-                return json_encode(["status"=> "error", "message"=> "Ocurrió un error al obtener el usuario." . $e->getMessage()]);
+                echo json_encode(["status"=> "error", "message"=> "Ocurrió un error al obtener el usuario." . $e->getMessage()]);
             }
         }
 
@@ -77,16 +77,16 @@
             try {
                 $id = $_GET['id'] ?? null;
                 if (empty($id)) {
-                    return json_encode(["status"=> "error", "message"=> "No se proporcionó un ID de usuario."]);
+                    echo json_encode(["status"=> "error", "message"=> "No se proporcionó un ID de usuario."]);
                 }
 
                 $res = $this -> Model -> get_clan_role_by_id($id);
                 $data = $res -> fetch_all(MYSQLI_ASSOC);
                 $res -> free();
 
-                return $data;
+                echo $data;
             } catch (Exception $e) {
-                return json_encode(["status"=> "error", "message"=> "Ocurrió un error al obtener el rol del usuario." . $e->getMessage()]);
+                echo json_encode(["status"=> "error", "message"=> "Ocurrió un error al obtener el rol del usuario." . $e->getMessage()]);
             }
         }
 
@@ -95,16 +95,16 @@
             try {
                 $username = $_GET['username'] ?? null;
                 if (empty($username)) {
-                    return json_encode(["status"=> "error", "message"=> "No se proporcionó un nombre de usuario."]);
+                    echo json_encode(["status"=> "error", "message"=> "No se proporcionó un nombre de usuario."]);
                 }
 
                 $res = $this -> Model -> get_by_username($username);
                 $user = $res -> fetch_all(MYSQLI_ASSOC);
                 $res -> free();
 
-                return $user;
+                echo $user;
             } catch (Exception $e) {
-                return json_encode(["status"=> "error", "message"=> "Ocurrió un error al buscar el usuario." . $e->getMessage()]);
+                echo json_encode(["status"=> "error", "message"=> "Ocurrió un error al buscar el usuario." . $e->getMessage()]);
             }
         }
 
@@ -113,16 +113,16 @@
             try {
                 $email = $_GET['email'] ?? null;
                 if (empty($email)) {
-                    return json_encode(["status"=> "error", "message"=> "No se proporcionó un email."]);
+                    echo json_encode(["status"=> "error", "message"=> "No se proporcionó un email."]);
                 }
 
                 $res = $this -> Model -> get_by_email($email);
                 $user = $res -> fetch_all(MYSQLI_ASSOC);
                 $res -> free();
 
-                return $user;
+                echo $user;
             } catch (Exception $e) {
-                return json_encode(["status"=> "error", "message"=> "Ocurrió un error al buscar el email." . $e->getMessage()]);
+                echo json_encode(["status"=> "error", "message"=> "Ocurrió un error al buscar el email." . $e->getMessage()]);
             }
         }
 
@@ -133,14 +133,14 @@
                 $username = $_POST['username'] ?? null;
 
                 if (empty($id) || empty($username)) {
-                    return json_encode(["status"=> "error", "message"=> "ID y nuevo username son requeridos."]);
+                    echo json_encode(["status"=> "error", "message"=> "ID y nuevo username son requeridos."]);
                 }
 
                 $this -> Model -> update_username($id, $username);
-                return json_encode(["status"=> "success", "message"=> "Username actualizado con éxito."]);
+                echo json_encode(["status"=> "success", "message"=> "Username actualizado con éxito."]);
 
             } catch (Exception $e) {
-                return json_encode(["status"=> "error", "message"=> "Error al actualizar el username. Es posible que ya esté en uso." . $e->getMessage()]);
+                echo json_encode(["status"=> "error", "message"=> "Error al actualizar el username. Es posible que ya esté en uso." . $e->getMessage()]);
             }
         }
 
@@ -151,14 +151,14 @@
                 $playername = $_POST['playername'] ?? null;
 
                 if (empty($id) || empty($playername)) {
-                    return json_encode(["status"=> "error", "message"=> "ID y nuevo playername son requeridos."]);
+                    echo json_encode(["status"=> "error", "message"=> "ID y nuevo playername son requeridos."]);
                 }
 
                 $this -> Model -> update_playername($id, $playername);
-                return json_encode(["status"=> "success", "message"=> "Playername actualizado con éxito."]);
+                echo json_encode(["status"=> "success", "message"=> "Playername actualizado con éxito."]);
 
             } catch (Exception $e) {
-                return json_encode(["status"=> "error", "message"=> "Error al actualizar el playername." . $e->getMessage()]);
+                echo json_encode(["status"=> "error", "message"=> "Error al actualizar el playername." . $e->getMessage()]);
             }
         }
 
@@ -169,15 +169,15 @@
                 $pass = $_POST['pass'] ?? null;
 
                 if (empty($id) || empty($pass)) {
-                    return json_encode(["status"=> "error", "message"=> "ID y nueva contraseña son requeridos."]);
+                    echo json_encode(["status"=> "error", "message"=> "ID y nueva contraseña son requeridos."]);
                 }
                 // ENCRIPTAR CONTRASEÑA
                 $this -> Model -> update_password($id, $pass);
                 
-                return json_encode(["status"=> "success", "message"=> "Contraseña actualizada con éxito."]);
+                echo json_encode(["status"=> "success", "message"=> "Contraseña actualizada con éxito."]);
 
             } catch (Exception $e) {
-                return json_encode(["status"=> "error", "message"=> "Error al actualizar la contraseña." . $e->getMessage()]);
+                echo json_encode(["status"=> "error", "message"=> "Error al actualizar la contraseña." . $e->getMessage()]);
             }
         }
 
@@ -186,14 +186,14 @@
             try {
                 $id = $_GET['id'] ?? null;
                 if (empty($id)) {
-                    return json_encode(["status"=> "error", "message"=> "ID de usuario requerido."]);
+                    echo json_encode(["status"=> "error", "message"=> "ID de usuario requerido."]);
                 }
 
                 $this -> Model -> delete($id);
-                return json_encode(["status"=> "success", "message"=> "Usuario desactivado con éxito."]);
+                echo json_encode(["status"=> "success", "message"=> "Usuario desactivado con éxito."]);
 
             } catch (Exception $e) {
-                return json_encode(["status"=> "error", "message"=> "Error al desactivar el usuario." . $e->getMessage()]);
+                echo json_encode(["status"=> "error", "message"=> "Error al desactivar el usuario." . $e->getMessage()]);
             }
         }
     }

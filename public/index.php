@@ -124,7 +124,7 @@
         require_once "../app/controllers/user_controller.php";
         $controller = new UserController();
 
-        $data = $controller -> get_all_users_clan_roles()['content']; 
+        $controller -> get_all_users_active(); 
 
         // $data = $controller->get_all_users_clan_roles()["content"];
 
