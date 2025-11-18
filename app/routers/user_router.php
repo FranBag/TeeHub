@@ -15,6 +15,18 @@
             case "clan_roles":
                 $controller -> get_all_users_clan_roles();
                 break;
+            case "by_id":
+                $controller -> get_user_by_id();
+                break;
+            case "clan_role_by_id":
+                $controller -> get_user_clan_role_by_id();
+                break;
+            case "by_username":
+                $controller -> get_user_by_username();
+                break;
+            case "by_email":
+                $controller -> get_user_by_email();
+                break;
             default:
                 echo json_encode(["status"=>"error", "message"=>"Acción inválida" . $action]);
                 break;
@@ -33,6 +45,4 @@
     } else {
         echo json_encode(["status"=>"error", "message"=>"Método HTTP invalido"]);
     }
-
-    // echo json_encode($request_method);
 ?>

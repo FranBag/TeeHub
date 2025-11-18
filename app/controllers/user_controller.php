@@ -66,7 +66,7 @@
                 $user = $res -> fetch_all(MYSQLI_ASSOC);
                 $res -> free();
 
-                echo $user;
+                echo json_encode(["status"=> "success", "message"=> "Consulta realizada", "content"=> $user]);
             } catch (Exception $e) {
                 echo json_encode(["status"=> "error", "message"=> "Ocurrió un error al obtener el usuario." . $e->getMessage()]);
             }
@@ -84,7 +84,7 @@
                 $data = $res -> fetch_all(MYSQLI_ASSOC);
                 $res -> free();
 
-                echo $data;
+                echo json_encode(["status"=> "success", "message"=> "Consulta realizada", "content"=> $data]);
             } catch (Exception $e) {
                 echo json_encode(["status"=> "error", "message"=> "Ocurrió un error al obtener el rol del usuario." . $e->getMessage()]);
             }
@@ -102,7 +102,7 @@
                 $user = $res -> fetch_all(MYSQLI_ASSOC);
                 $res -> free();
 
-                echo $user;
+                echo json_encode(["status"=> "success", "message"=> "Consulta realizada", "content"=> $user]);
             } catch (Exception $e) {
                 echo json_encode(["status"=> "error", "message"=> "Ocurrió un error al buscar el usuario." . $e->getMessage()]);
             }
@@ -120,7 +120,7 @@
                 $user = $res -> fetch_all(MYSQLI_ASSOC);
                 $res -> free();
 
-                echo $user;
+                echo json_encode(["status"=> "success", "message"=> "Consulta realizada", "content"=> $user]);
             } catch (Exception $e) {
                 echo json_encode(["status"=> "error", "message"=> "Ocurrió un error al buscar el email." . $e->getMessage()]);
             }
