@@ -121,27 +121,21 @@
     <script type="text/javascript" src="../app/views/nav_mobile.js"></script>
 
     <?php 
-        require_once "../app/models/clan_model.php";
+        require_once "../app/controllers/user_controller.php";
+        $controller = new UserController();
 
-        $model = new ClanModel();
+        $data = $controller->get_all_users_clan_roles()["content"];
 
-        // $clan_model -> create("Khaotic");
-
-        // $clan_model -> delete(3);
-
-        // echo ($model -> updatePlayername(9, "HOLe"));
-
-        $resultado = $model -> get_all_members_by_id(1);
-
-        while ($row = mysqli_fetch_assoc($resultado)) {
-            echo "<tr>";
-            // echo "<td>" . $row["id_user"] . "</td>";
-            echo "<td>" . htmlspecialchars($row["username"]) . "</td>";
-            echo "<td>" . htmlspecialchars($row["user_role"]) . "</td>";
-            // echo "<td>" . htmlspecialchars($row["clan_name"]) . "</td>";
-            echo "</tr>";
+        foreach ($data as $row) {
+                echo "<tr>";
+                // echo "<td>" . $row["id_user"] . "</td>";
+                echo "<td>" . htmlspecialchars($row["username"]) . "</td>";
+                echo "<td>" . htmlspecialchars($row["user_role"]) . "</td>";
+                // echo "<td>" . htmlspecialchars($row["email"]) . "</td>";
+                // echo "<td>" . htmlspecialchars($row["created_at"]) . "</td>";
+                echo "</tr>";
         }
-    ?>
+?>
 </body>
 
 </html>
