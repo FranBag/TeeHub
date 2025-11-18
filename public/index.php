@@ -124,17 +124,19 @@
         require_once "../app/controllers/user_controller.php";
         $controller = new UserController();
 
-        $data = $controller->get_all_users_clan_roles()["content"];
+        $data = $controller -> get_all_users_clan_roles()['content']; 
 
-        foreach ($data as $row) {
-                echo "<tr>";
-                // echo "<td>" . $row["id_user"] . "</td>";
-                echo "<td>" . htmlspecialchars($row["username"]) . "</td>";
-                echo "<td>" . htmlspecialchars($row["user_role"]) . "</td>";
-                // echo "<td>" . htmlspecialchars($row["email"]) . "</td>";
-                // echo "<td>" . htmlspecialchars($row["created_at"]) . "</td>";
-                echo "</tr>";
-        }
+        // $data = $controller->get_all_users_clan_roles()["content"];
+
+        // foreach ($data as $row) {
+        //         echo "<tr>";
+        //         // echo "<td>" . $row["id_user"] . "</td>";
+        //         echo "<td>" . htmlspecialchars($row["username"]) . "</td>";
+        //         echo "<td>" . htmlspecialchars($row["user_role"]) . "</td>";
+        //         // echo "<td>" . htmlspecialchars($row["email"]) . "</td>";
+        //         // echo "<td>" . htmlspecialchars($row["created_at"]) . "</td>";
+        //         echo "</tr>";
+        // }
 ?>
 </body>
 
